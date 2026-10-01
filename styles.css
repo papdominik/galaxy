@@ -569,6 +569,11 @@ blockquote {
   gap: 0;
 }
 
+/* On one column the photo sits under the text, so give it room to breathe. */
+.split--price > .split__photo--fill {
+  margin-top: 48px;
+}
+
 .split__photo img {
   width: 100%;
   height: auto;
@@ -988,6 +993,13 @@ blockquote {
 
   .split--price {
     grid-template-columns: 1.15fr 1fr;
+  }
+
+  /* Inset the photo so it reads as its own panel instead of touching the
+     text column. The wider left padding is the gap facing the copy. */
+  .split--price > .split__photo--fill {
+    margin-top: 0;
+    padding: 40px 40px 40px 48px;
   }
 
   .split--price > .split__photo--fill img {

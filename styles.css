@@ -1,0 +1,1027 @@
+/* ===========================================================================
+ * Fitness Centar Galaxy — stylesheet
+ *
+ * Plain CSS, no framework and no build step. Everything the site needs is in
+ * this one file:
+ *
+ *   1. Tokens      — colours, fonts, spacing (change the brand here)
+ *   2. Base        — reset and page defaults
+ *   3. Layout      — the wrap, sections and grids
+ *   4. Components  — nav, CTAs, facts, price, rating, contact, footer
+ *   5. The film    — the sticky scroll stage
+ *   6. Motion      — entrance animation, reduced-motion fallback
+ *   7. Responsive  — tablet and phone
+ * =========================================================================== */
+
+/* 1. Tokens ---------------------------------------------------------------- */
+
+:root {
+  /* Brand */
+  --gx-bg: #0b0e14;
+  --gx-surface: #141821;
+  --gx-ink: #f2f3f5;
+  --gx-muted: #8a9099;
+  --gx-accent: #c81e3a;
+  --gx-accent-deep: #a3152e;
+  --gx-accent-soft: #e8556e;
+  --gx-rule: rgba(242, 243, 245, 0.14);
+  --gx-rule-strong: rgba(242, 243, 245, 0.28);
+
+  /* Type */
+  --gx-display: "Cabinet Grotesk", "Inter Tight", system-ui, sans-serif;
+  --gx-body: "Inter Tight", system-ui, -apple-system, sans-serif;
+
+  /* Rhythm */
+  --gx-wrap: 1240px;
+  --gx-gutter: 24px;
+  --gx-section: 80px;
+  --gx-header: 80px;
+}
+
+/* 2. Base ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--gx-bg);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--gx-bg);
+  color: var(--gx-ink);
+  font-family: var(--gx-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background-color: var(--gx-accent);
+  color: var(--gx-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gx-accent-soft);
+  outline-offset: 3px;
+}
+
+/* Everything on this site is sharp. */
+a,
+button,
+input,
+select,
+textarea,
+div,
+section,
+header,
+footer,
+article,
+aside,
+main,
+nav,
+ul,
+li,
+figure,
+dl,
+blockquote {
+  border-radius: 0;
+}
+
+/* 3. Layout ---------------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--gx-wrap);
+  margin: 0 auto;
+  padding: 0 var(--gx-gutter);
+}
+
+.section {
+  padding: var(--gx-section) 0;
+  border-top: 1px solid var(--gx-rule);
+}
+
+.section--surface {
+  background-color: var(--gx-surface);
+  border-top: 1px solid var(--gx-rule);
+}
+
+.section:first-of-type {
+  border-top: 0;
+}
+
+/* Typography roles */
+.headline {
+  max-width: 20ch;
+  font-family: var(--gx-display);
+  font-size: clamp(2rem, 4.6vw, 3.6rem);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.body {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.body.wide {
+  max-width: 58ch;
+}
+
+.body.small {
+  font-size: 0.875rem;
+}
+
+.muted {
+  color: var(--gx-muted);
+}
+
+.kicker {
+  font-family: var(--gx-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gx-muted);
+}
+
+.kicker--accent {
+  color: var(--gx-accent);
+}
+
+.label {
+  font-family: var(--gx-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gx-muted);
+}
+
+/* 4. Components ------------------------------------------------------------ */
+
+/* Header */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+
+.site-header.is-scrolled {
+  background-color: rgba(11, 14, 20, 0.85);
+  border-bottom-color: var(--gx-rule);
+  backdrop-filter: blur(6px);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--gx-header);
+}
+
+.site-header__links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.site-header__links a {
+  position: relative;
+  padding: 4px 0;
+  font-family: var(--gx-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gx-muted);
+  transition: color 0.2s ease;
+}
+
+.site-header__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gx-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.site-header__links a:hover {
+  color: var(--gx-ink);
+}
+
+.site-header__links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand__small {
+  font-family: var(--gx-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gx-muted);
+}
+
+.brand__big {
+  margin-top: 4px;
+  font-family: var(--gx-display);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.brand--footer {
+  display: flex;
+}
+
+/* CTA 1: the nav tab, with a price tag. */
+.cta--tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--gx-accent);
+  padding: 10px 12px 10px 16px;
+  font-family: var(--gx-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.cta--tab:hover {
+  background-color: var(--gx-accent-deep);
+}
+
+.cta--tab .cta__label {
+  transition: transform 0.2s ease;
+}
+
+.cta--tab:hover .cta__label {
+  transform: translateX(4px);
+}
+
+.cta__price {
+  border-left: 1px solid rgba(242, 243, 245, 0.3);
+  padding-left: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+/* CTA 2: the journey slab, which imprints when pressed. */
+.cta--slab {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--gx-accent);
+  padding: 16px 28px;
+  font-family: var(--gx-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.cta--slab svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.cta--slab:hover {
+  background-color: var(--gx-accent-deep);
+}
+
+.cta--slab:hover svg {
+  transform: translateX(4px);
+}
+
+.cta--slab:active,
+.cta--strip:active {
+  transform: translateY(3px) skewX(-2deg);
+  box-shadow:
+    inset 0 3px 8px rgba(0, 0, 0, 0.45),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* CTA 3: the membership strip, which shears and shifts grade. */
+.cta--strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  margin-top: 40px;
+  border: 1px solid var(--gx-accent);
+  padding: 20px 24px;
+  font-family: var(--gx-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.cta--strip:hover {
+  transform: skewX(-1.4deg);
+  background-color: var(--gx-accent);
+  border-color: var(--gx-accent-deep);
+}
+
+.cta__aside {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gx-accent);
+  transition: color 0.3s ease;
+}
+
+.cta--strip:hover .cta__aside {
+  color: var(--gx-ink);
+}
+
+.cta__rule {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.cta--strip:hover .cta__rule {
+  width: 48px;
+}
+
+/* CTA 4: the framed reviews button. */
+.cta--frame {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  border: 1px solid var(--gx-rule-strong);
+  padding: 16px 24px;
+  font-family: var(--gx-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.cta--frame:hover {
+  border-color: var(--gx-accent);
+  background-color: var(--gx-accent);
+}
+
+.cta--frame .cta__rule {
+  width: 32px;
+  background: var(--gx-rule-strong);
+}
+
+.cta--frame:hover .cta__rule {
+  width: 48px;
+  background: var(--gx-ink);
+}
+
+/* CTA 5: the phone numeral is the hit area; the label is its caption. */
+.phone {
+  display: inline-flex;
+  flex-direction: column;
+  margin-top: 48px;
+}
+
+.phone__number {
+  font-family: var(--gx-display);
+  font-size: clamp(2.4rem, 7vw, 5.2rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
+}
+
+.phone:hover .phone__number {
+  color: var(--gx-accent-soft);
+}
+
+.phone__caption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  font-family: var(--gx-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gx-muted);
+}
+
+.phone__rule {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gx-rule-strong);
+  transition: width 0.3s ease;
+}
+
+.phone:hover .phone__rule {
+  width: 56px;
+}
+
+/* CTA 6: footer links, with the arrow drawn along a path. */
+.pathlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: var(--gx-muted);
+  transition: color 0.2s ease;
+}
+
+.pathlink svg {
+  width: 48px;
+  height: 12px;
+  flex: none;
+}
+
+.pathlink svg path:last-child {
+  transition: transform 0.3s ease;
+}
+
+.pathlink:hover {
+  color: var(--gx-ink);
+}
+
+.pathlink:hover svg path:last-child {
+  transform: translateX(8px);
+}
+
+.footerlink {
+  font-size: 0.875rem;
+  color: var(--gx-muted);
+  transition: color 0.2s ease;
+}
+
+.footerlink:hover {
+  color: var(--gx-ink);
+}
+
+/* Tags under the hero copy */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.tags li {
+  border: 1px solid var(--gx-rule-strong);
+  padding: 6px 12px;
+  font-family: var(--gx-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gx-muted);
+}
+
+/* Oprema: photo beside a ruled list */
+.split {
+  display: grid;
+  gap: 1px;
+  margin-top: 56px;
+  background-color: var(--gx-rule);
+}
+
+.split--price {
+  margin-top: 0;
+  background-color: transparent;
+  gap: 0;
+}
+
+.split__photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  background-color: var(--gx-surface);
+}
+
+.split__photo--fill img {
+  aspect-ratio: 4 / 3;
+  height: 100%;
+}
+
+.facts {
+  background-color: var(--gx-surface);
+  padding: 32px;
+}
+
+.facts > div + div {
+  border-top: 1px solid var(--gx-rule);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.facts dt {
+  font-family: var(--gx-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.facts dd {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--gx-muted);
+}
+
+.pair {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.pair img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--gx-surface);
+}
+
+.pair figcaption {
+  margin-top: 16px;
+  font-family: var(--gx-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gx-muted);
+}
+
+/* Članarina */
+.price {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  font-family: var(--gx-display);
+  font-weight: 800;
+}
+
+.price__number {
+  font-size: clamp(5rem, 15vw, 10rem);
+  line-height: 0.78;
+  letter-spacing: -0.04em;
+}
+
+.price__currency {
+  padding-bottom: 12px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+}
+
+.rows {
+  margin-top: 40px;
+  border-top: 1px solid var(--gx-rule);
+  border-bottom: 1px solid var(--gx-rule);
+}
+
+.rows > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.rows > div + div {
+  border-top: 1px solid var(--gx-rule);
+}
+
+.rows dt {
+  font-family: var(--gx-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gx-muted);
+}
+
+.rows dd {
+  font-size: 0.875rem;
+}
+
+/* Treneri */
+.duo {
+  display: grid;
+  gap: 40px;
+  margin-top: 56px;
+}
+
+.duo h3 {
+  font-family: var(--gx-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.duo p {
+  margin-top: 12px;
+  max-width: 42ch;
+  font-size: 0.875rem;
+}
+
+/* Recenzije */
+.rating {
+  display: grid;
+  gap: 48px;
+}
+
+.rating__value {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  font-family: var(--gx-display);
+  font-weight: 800;
+}
+
+.rating__number {
+  font-size: clamp(4rem, 12vw, 8rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+}
+
+.rating__of {
+  padding-bottom: 8px;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--gx-muted);
+}
+
+.rating__count {
+  margin-top: 24px;
+  font-family: var(--gx-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gx-accent);
+}
+
+/* Posjet */
+.contact {
+  display: grid;
+  gap: 40px;
+  margin-top: 64px;
+  border-top: 1px solid var(--gx-rule);
+  padding-top: 40px;
+}
+
+.contact .body {
+  margin-top: 16px;
+  max-width: 26ch;
+}
+
+.contact .body + .body {
+  margin-top: 8px;
+  max-width: 30ch;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--gx-rule);
+  background-color: var(--gx-surface);
+  padding: 64px 0;
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: 48px;
+}
+
+.site-footer__grid .body {
+  margin-top: 24px;
+  max-width: 34ch;
+}
+
+.site-footer__grid p + p {
+  margin-top: 16px;
+}
+
+.site-footer__line {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 56px;
+  border-top: 1px solid var(--gx-rule);
+  padding-top: 32px;
+  font-family: var(--gx-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gx-muted);
+}
+
+/* 5. The film -------------------------------------------------------------- */
+
+/* The band is tall; the stage inside it sticks to the viewport while the
+   visitor scrolls, so the clip scrubs in place. More height = slower scrub. */
+.journey {
+  position: relative;
+  height: 300vh;
+  background-color: var(--gx-bg);
+}
+
+.journey__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.journey__poster,
+.journey__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.journey__poster {
+  transition: opacity 0.4s ease;
+}
+
+.journey__poster.is-hidden {
+  opacity: 0;
+}
+
+.journey__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(11, 14, 20, 0.95) 0%,
+    rgba(11, 14, 20, 0.82) 38%,
+    rgba(11, 14, 20, 0.35) 68%,
+    rgba(11, 14, 20, 0.15) 100%
+  );
+}
+
+.journey__copy {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--gx-wrap);
+  margin: 0 auto;
+  padding: 0 var(--gx-gutter);
+}
+
+.journey__copy h1 {
+  max-width: 15ch;
+  font-family: var(--gx-display);
+  font-size: clamp(2.4rem, 6.6vw, 4.9rem);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.journey__copy .kicker {
+  color: var(--gx-accent);
+}
+
+.journey__copy .lede {
+  max-width: 44ch;
+  margin-top: 32px;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: rgba(242, 243, 245, 0.72);
+}
+
+.journey__copy .cta--slab {
+  margin-top: 44px;
+  align-self: flex-start;
+}
+
+/* Reduced motion: no film fetch at all, just the still frame. */
+.journey.is-static {
+  height: auto;
+}
+
+.journey.is-static .journey__stage {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* 6. Motion ---------------------------------------------------------------- */
+
+@keyframes gx-rise {
+  from {
+    opacity: 0.35;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: gx-rise 640ms cubic-bezier(0.22, 0.68, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* 7. Responsive ------------------------------------------------------------ */
+
+/* Tablet */
+@media (min-width: 640px) {
+  .pair {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rating {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+
+  .site-footer__line {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .contact {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .contact > div + div {
+    border-left: 1px solid var(--gx-rule);
+    padding-left: 40px;
+  }
+
+  .contact > div:last-child {
+    padding-right: 0;
+  }
+
+  .contact > div {
+    padding-right: 40px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  :root {
+    --gx-gutter: 40px;
+    --gx-section: 112px;
+  }
+
+  .site-header__links {
+    display: flex;
+  }
+
+  .split {
+    grid-template-columns: 1.4fr 1fr;
+  }
+
+  .split--price {
+    grid-template-columns: 1.15fr 1fr;
+  }
+
+  .split--price > .split__photo--fill img {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .duo {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .duo > div {
+    padding-right: 40px;
+  }
+
+  .duo > div + div {
+    border-left: 1px solid var(--gx-rule);
+    padding-left: 40px;
+    padding-right: 0;
+  }
+}
+
+/* Phone: the nav links are hidden, the CTA stays. */
+@media (max-width: 1023px) {
+  .site-header__links {
+    display: none;
+  }
+
+  .journey__copy .lede {
+    font-size: 1rem;
+  }
+
+  .journey__copy h1 {
+    font-size: clamp(2.2rem, 9vw, 3.4rem);
+  }
+}

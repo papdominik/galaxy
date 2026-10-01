@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fitness Centar Galaxy | Teretana u Vinkovcima</title>
+    <meta
+      name="description"
+      content="Opremljena teretana u Vinkovcima. Članarina 28 € mjesečno, dva trenera, sauna i ekipa koja se zna po imenu."
+    />
+    <meta name="theme-color" content="#0b0e14" />
+
+    <!-- Social cards. Replace the domain with the real one once it is known;
+         social networks need absolute URLs here. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="hr_HR" />
+    <meta property="og:title" content="Fitness Centar Galaxy | Teretana u Vinkovcima" />
+    <meta
+      property="og:description"
+      content="Opremljena teretana u Vinkovcima. Članarina 28 € mjesečno, dva trenera, sauna i ekipa koja se zna po imenu."
+    />
+    <meta property="og:image" content="brand/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="brand/icon.png" />
+    <link rel="apple-touch-icon" href="brand/apple-touch-icon.png" />
+
+    <!-- Fonts: Cabinet Grotesk (display) from Fontshare, Inter Tight (body) from Google. -->
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- The verifiable facts about the business, for search engines. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HealthClub",
+        "name": "Fitness Centar Galaxy",
+        "description": "Opremljena teretana u Vinkovcima s dva trenera i saunom.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ul. Ante Starčevića",
+          "postalCode": "32100",
+          "addressLocality": "Vinkovci",
+          "addressCountry": "HR"
+        },
+        "telephone": "+385953210050",
+        "priceRange": "28 €",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.6",
+          "reviewCount": "111"
+        },
+        "sameAs": ["https://instagram.com/fitness.centar.galaxy"]
+      }
+    </script>
+  </head>
+
+  <body>
+    <header class="site-header" id="site-header">
+      <nav class="wrap site-header__bar" aria-label="Glavna navigacija">
+        <a class="brand" href="#pocetak">
+          <span class="brand__small">Fitness centar</span>
+          <span class="brand__big">Galaxy</span>
+        </a>
+
+        <div class="site-header__links">
+          <a href="#oprema">Oprema</a>
+          <a href="#clanarina">Članarina</a>
+          <a href="#treneri">Treneri</a>
+          <a href="#posjet">Kontakt</a>
+        </div>
+
+        <a class="cta cta--tab" href="#posjet">
+          <span class="cta__label">Postani član</span>
+          <span class="cta__price">28 €</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- The film. Scroll drives the video's time; the copy sits over it and the
+           sections below are ordinary page flow. -->
+      <section class="journey" id="pocetak" aria-label="Teretana">
+        <div class="journey__stage">
+          <img
+            class="journey__poster"
+            src="assets/world/scene-01-poster.jpg"
+            alt=""
+            aria-hidden="true"
+          />
+          <video
+            class="journey__video"
+            muted
+            playsinline
+            preload="none"
+            poster="assets/world/scene-01-poster.jpg"
+            data-desktop="assets/world/scene-01.mp4"
+            data-mobile="assets/world/scene-01-mobile.mp4"
+            data-poster-desktop="assets/world/scene-01-poster.jpg"
+            data-poster-mobile="assets/world/scene-01-mobile-poster.jpg"
+          ></video>
+          <div class="journey__scrim" aria-hidden="true"></div>
+
+          <div class="journey__copy rise">
+            <p class="kicker">Dobrodošli u Galaxy</p>
+            <h1>Tvoja teretana u Vinkovcima.</h1>
+            <p class="lede">
+              Opremljena teretana u Vinkovcima, dva trenera i ekipa koja se zna po imenu.
+              Dođi, pogledaj i odradi prvi trening.
+            </p>
+            <ul class="tags">
+              <li>4,6 na Googleu</li>
+              <li>111 recenzija</li>
+            </ul>
+            <a class="cta cta--slab" href="#posjet">
+              Postani član
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12h14M13 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="oprema">
+        <div class="wrap">
+          <h2 class="headline">Sve što ti treba za trening.</h2>
+          <p class="body muted wide">
+            Teretana je opremljena za trening snage i kondicije, a sauna ti ostaje nakon
+            treninga. Ako nešto ne znaš, pitaj trenera na podu.
+          </p>
+
+          <div class="split">
+            <figure class="split__photo">
+              <img
+                src="assets/img/floor.jpg"
+                alt="Opremljena teretana s policama za utege i ogledalima"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <dl class="facts">
+              <div>
+                <dt>Slobodni utezi</dt>
+                <dd>Šipke, bučice i ploče za osnovne vježbe snage.</dd>
+              </div>
+              <div>
+                <dt>Sprave za snagu</dt>
+                <dd>Sprave za svaku mišićnu skupinu, s uputama na svakoj.</dd>
+              </div>
+              <div>
+                <dt>Kardio</dt>
+                <dd>Treadmilli i sobni bicikli za zagrijavanje i kondiciju.</dd>
+              </div>
+              <div>
+                <dt>Sauna</dt>
+                <dd>Opusti se nakon treninga.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="pair">
+            <figure>
+              <img src="assets/img/weights.jpg" alt="Red bučica u teretani" loading="lazy" decoding="async" />
+              <figcaption>Slobodni utezi</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="assets/img/cardio.jpg"
+                alt="Treadmilli i sobni bicikli u teretani"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Kardio zona</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--surface" id="clanarina">
+        <div class="wrap split split--price">
+          <div>
+            <p class="kicker kicker--accent">Članarina</p>
+            <p class="price"><span class="price__number">28</span><span class="price__currency">€</span></p>
+            <p class="body muted wide">
+              Mjesečna članarina. Plaća se u teretani, bez skrivenih troškova i bez ugovora
+              na duge staze.
+            </p>
+
+            <dl class="rows">
+              <div><dt>Članarina</dt><dd>28 € / mjesec</dd></div>
+              <div><dt>Sauna</dt><dd>Uključena</dd></div>
+              <div><dt>Treneri</dt><dd>Dva trenera u teretani</dd></div>
+              <div><dt>Otvoreno</dt><dd>Do 22:00</dd></div>
+            </dl>
+
+            <a class="cta cta--strip" href="#posjet">
+              <span class="cta__label">Postani član</span>
+              <span class="cta__aside">
+                095 321 0050<span class="cta__rule"></span>
+              </span>
+            </a>
+          </div>
+
+          <figure class="split__photo split__photo--fill">
+            <img src="assets/img/sauna.jpg" alt="Drvena sauna u teretani" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="treneri">
+        <div class="wrap">
+          <h2 class="headline">Dva trenera, jedan plan.</h2>
+          <p class="body muted wide">
+            U teretani su dva trenera. Obrati im se bez obzira na to je li ti ovo prvi trening
+            ili treniraš godinama.
+          </p>
+
+          <div class="duo">
+            <div>
+              <h3>Tehnika</h3>
+              <p class="body muted">Treneri će ti pokazati pravilno izvođenje na svakoj spravi, bez žurbe.</p>
+            </div>
+            <div>
+              <h3>Plan treninga</h3>
+              <p class="body muted">Složit će ti plan koji možeš odraditi u terminima koji ti odgovaraju.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--surface" id="recenzije">
+        <div class="wrap rating">
+          <div>
+            <p class="rating__value">
+              <span class="rating__number">4,6</span><span class="rating__of">/ 5</span>
+            </p>
+            <p class="rating__count">111 recenzija</p>
+          </div>
+          <div class="rating__note">
+            <p class="body muted wide">
+              Ocjena i broj recenzija su s Google profila teretane. Umjesto naših izmišljenih
+              citata, pročitaj što članovi stvarno pišu.
+            </p>
+            <a
+              class="cta cta--frame"
+              href="https://www.google.com/maps/search/?api=1&query=Fitness+Centar+Galaxy+Vinkovci"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="cta__label">Pogledaj recenzije</span>
+              <span class="cta__rule"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="posjet">
+        <div class="wrap">
+          <h2 class="headline">Dođi na trening.</h2>
+
+          <a class="phone" href="tel:+385953210050">
+            <span class="phone__number">095 321 0050</span>
+            <span class="phone__caption"><span class="phone__rule"></span>Nazovi teretanu</span>
+          </a>
+
+          <div class="contact">
+            <div>
+              <p class="label">Adresa</p>
+              <p class="body wide">Ul. Ante Starčevića, 32100 Vinkovci</p>
+            </div>
+            <div>
+              <p class="label">Radno vrijeme</p>
+              <p class="body">Otvoreno do 22:00</p>
+              <p class="body muted small">Cijeli raspored po danima potraži na Google profilu.</p>
+            </div>
+            <div>
+              <p class="label">Instagram</p>
+              <p>
+                <a class="pathlink" href="https://instagram.com/fitness.centar.galaxy" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 48 12" aria-hidden="true">
+                    <path d="M0 6h40" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" />
+                    <path d="M34 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" />
+                  </svg>
+                  fitness.centar.galaxy
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="site-footer__grid">
+          <div>
+            <span class="brand brand--footer">
+              <span class="brand__small">Fitness centar</span>
+              <span class="brand__big">Galaxy</span>
+            </span>
+            <p class="body muted small">
+              Teretana u Vinkovcima. Oprema za snagu i kardio, sauna i dva trenera.
+            </p>
+          </div>
+          <div>
+            <p class="label">Kontakt</p>
+            <p><a class="pathlink" href="tel:+385953210050">095 321 0050</a></p>
+            <p>
+              <a
+                class="pathlink"
+                href="https://www.google.com/maps/search/?api=1&query=Fitness+Centar+Galaxy+Vinkovci"
+                target="_blank"
+                rel="noreferrer"
+                >Google profil</a
+              >
+            </p>
+          </div>
+          <div>
+            <p class="label">Na stranici</p>
+            <p><a class="footerlink" href="#oprema">Oprema</a></p>
+            <p><a class="footerlink" href="#clanarina">Članarina</a></p>
+            <p><a class="footerlink" href="#treneri">Treneri</a></p>
+            <p><a class="footerlink" href="#posjet">Kontakt</a></p>
+          </div>
+        </div>
+
+        <div class="site-footer__line">
+          <span>Fitness Centar Galaxy</span>
+          <span>Ul. Ante Starčevića, 32100 Vinkovci</span>
+          <span>Fotografije su ilustrativne</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
